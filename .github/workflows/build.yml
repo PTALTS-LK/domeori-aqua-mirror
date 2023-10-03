@@ -15,7 +15,7 @@ jobs:
           chmod +x ./gradlew
           ./gradlew clean build
       - name: output
-        uses: Shopify/upload-to-release@v1
+        uses: Shopify/upload-to-release@v1.0.1
         with:
           name: release
           path: build/libs/aqua-0.0.46-RELEASE-plain.jar

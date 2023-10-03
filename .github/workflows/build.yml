@@ -15,9 +15,9 @@ jobs:
           chmod +x ./gradlew
           ./gradlew clean build
       - name: output
-        uses: actions/upload-artifact@v3
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          name: build
-          path: |
-            build/libs/aqua-0.0.46-RELEASE-plain.jar
-            build/libs/aqua-0.0.46-RELEASE.jar
+          target_branch: output
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

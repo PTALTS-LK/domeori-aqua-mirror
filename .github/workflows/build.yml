@@ -1,0 +1,21 @@
+name: Build
+on: 
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: setup jdk
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: build
+        run: ./gradlew clean build
+      - name: output
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: build/ilbs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

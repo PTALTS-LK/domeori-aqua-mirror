@@ -11,7 +11,9 @@ jobs:
         with:
           java-version: 17
       - name: build
-        run: ./gradlew clean build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build
       - name: output
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:

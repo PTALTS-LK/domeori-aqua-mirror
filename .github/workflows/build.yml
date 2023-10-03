@@ -14,11 +14,10 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew clean build
-          ls build
       - name: output
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
-          build_dir: build/ilbs
+          build_dir: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

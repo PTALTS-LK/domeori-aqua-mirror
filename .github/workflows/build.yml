@@ -16,8 +16,8 @@ jobs:
           ./gradlew clean build
           mv build/libs ./
       - name: output
-        uses: svenstaro/upload-release-action@v2
+        uses: actions/upload-artifact@v3
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/libs/aqua-0.0.46-RELEASE.jar
-          tag: ${{ github.ref }}
+          name: build
+          path: |
+            build/libs/aqua-0.0.46-RELEASE.jar

@@ -15,8 +15,9 @@ jobs:
           chmod +x ./gradlew
           ./gradlew clean build
       - name: output
-        uses: Shopify/upload-to-release@v1.0.1
+        uses: actions/upload-artifact@v3
         with:
-          name: release
-          path: build/libs/aqua-0.0.46-RELEASE-plain.jar
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          name: build
+          path: |
+            build/libs/aqua-0.0.46-RELEASE-plain.jar
+            build/libs/aqua-0.0.46-RELEASE.jar

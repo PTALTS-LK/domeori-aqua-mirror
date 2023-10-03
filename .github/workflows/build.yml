@@ -16,9 +16,8 @@ jobs:
           ./gradlew clean build
           mv build/libs ./
       - name: output
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: svenstaro/upload-release-action@v2
         with:
-          target_branch: output
-          build_dir: libs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build/libs/aqua-0.0.46-RELEASE.jar
+          tag: ${{ github.ref }}

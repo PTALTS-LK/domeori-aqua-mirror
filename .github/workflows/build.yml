@@ -15,9 +15,8 @@ jobs:
           chmod +x ./gradlew
           ./gradlew clean build
       - name: output
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - uses: Shopify/upload-to-release@v1
         with:
-          target_branch: output
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: release
+          path: build/libs/aqua-0.0.46-RELEASE-plain.jar
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
